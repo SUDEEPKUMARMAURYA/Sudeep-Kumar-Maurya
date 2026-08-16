@@ -1,12 +1,7 @@
 import { useState } from "react";
-// import {
-//   ArrowUpRight,
-//   Github,
-//   Linkedin,
-//   Mail,
-//   MapPin,
-//   Send,
-// } from "lucide-react";
+import { SiGmail } from "react-icons/si";
+import { IoCall } from "react-icons/io5";
+import { IoLocationSharp } from "react-icons/io5";
 
 import { contactData } from "./contact.data";
 
@@ -51,7 +46,6 @@ function Contact() {
       <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
@@ -72,17 +66,13 @@ function Contact() {
 
         {/* Contact Content */}
         <div className="mx-auto mt-16 grid max-w-6xl gap-6 lg:grid-cols-[0.75fr_1.25fr]">
-
           {/* Contact Info */}
           <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
-
-            <h3 className="text-xl font-semibold text-white">
-              Get in touch
-            </h3>
+            <h3 className="text-xl font-semibold text-white">Get in touch</h3>
 
             <p className="mt-3 text-sm leading-7 text-slate-500">
-              Whether you want to discuss a project, a job opportunity or
-              simply connect, you can reach me through the following channels.
+              Whether you want to discuss a project, a job opportunity or simply
+              connect, you can reach me through the following channels.
             </p>
 
             {/* Email */}
@@ -91,19 +81,33 @@ function Contact() {
               className="group mt-8 flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-900/50 p-4 transition-all duration-300 hover:border-cyan-400/20"
             >
               <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/10 p-3">
-                {/* <Mail
-                  size={20}
-                  className="text-cyan-400"
-                /> */}
+                <SiGmail className="text-cyan-400" />
               </div>
 
               <div className="min-w-0">
-                <p className="text-xs text-slate-600">
-                  Email
-                </p>
+                <p className="text-xs text-slate-600">Email</p>
 
                 <p className="mt-1 truncate text-sm font-medium text-slate-300 group-hover:text-cyan-400">
                   {contactData.email}
+                </p>
+              </div>
+            </a>
+            {/* Mob */}
+            <a
+              href={`callto:${contactData.mob}`}
+              className="group mt-3 flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-900/50 p-4 transition-all duration-300 hover:border-cyan-400/20"
+            >
+              <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/10 p-3">
+                <IoCall
+                  className="text-cyan-400"
+                />
+              </div>
+
+              <div className="min-w-0">
+                <p className="text-xs text-slate-600">Mobile Number</p>
+
+                <p className="mt-1 truncate text-sm font-medium text-slate-300 group-hover:text-cyan-400">
+                  {contactData.mob}
                 </p>
               </div>
             </a>
@@ -111,20 +115,15 @@ function Contact() {
             {/* Location */}
             <div className="mt-3 flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-900/50 p-4">
               <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/10 p-3">
-                {/* <MapPin
-                  size={20}
+                <IoLocationSharp
                   className="text-cyan-400"
-                /> */}
+                />
               </div>
 
               <div>
-                <p className="text-xs text-slate-600">
-                  Location
-                </p>
+                <p className="text-xs text-slate-600">Location</p>
 
-                <p className="mt-1 text-sm font-medium text-slate-300">
-                  India
-                </p>
+                <p className="mt-1 text-sm font-medium text-slate-300">India</p>
               </div>
             </div>
 
@@ -135,7 +134,6 @@ function Contact() {
               </p>
 
               <div className="mt-4 flex gap-3">
-
                 <a
                   href={contactData.socialLinks[0].href}
                   target="_blank"
@@ -155,7 +153,6 @@ function Contact() {
                 >
                   {/* <Linkedin size={19} /> */}
                 </a>
-
               </div>
             </div>
 
@@ -178,7 +175,6 @@ function Contact() {
 
           {/* Contact Form */}
           <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
-
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-white">
                 Send a message
@@ -189,14 +185,9 @@ function Contact() {
               </p>
             </div>
 
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5"
-            >
-
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name + Email */}
               <div className="grid gap-5 sm:grid-cols-2">
-
                 <div>
                   <label
                     htmlFor="name"
@@ -236,7 +227,6 @@ function Contact() {
                     className="w-full rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-600 focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/10"
                   />
                 </div>
-
               </div>
 
               {/* Subject */}
@@ -294,13 +284,11 @@ function Contact() {
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition-all duration-300 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/20"
               >
                 Send Message
-
                 {/* <Send
                   size={17}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 /> */}
               </button>
-
             </form>
           </div>
         </div>
@@ -308,9 +296,7 @@ function Contact() {
         {/* Bottom CTA */}
         <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-5 rounded-3xl border border-white/10 bg-white/[0.02] p-6 text-center sm:flex-row sm:text-left sm:p-8">
           <div>
-            <p className="font-semibold text-white">
-              Prefer email?
-            </p>
+            <p className="font-semibold text-white">Prefer email?</p>
 
             <p className="mt-1 text-sm text-slate-500">
               Send me a direct message anytime.
